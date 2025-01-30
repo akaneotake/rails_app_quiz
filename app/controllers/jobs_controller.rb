@@ -12,6 +12,11 @@ class JobsController < ApplicationController
     render 'jobs/index'
   end
 
+  def show
+    @job = Job.find_by(:id params[:id])
+    render 'jobs/create'
+  end
+
   private
     def job_params
       params.require(:job).permit(

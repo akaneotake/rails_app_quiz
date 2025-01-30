@@ -7,6 +7,11 @@ class JobsController < ApplicationController
     end
   end
 
+  def index
+    @jobs = Job.all
+    render 'jobs/index'
+  end
+
   private
     def job_params
       params.require(:job).permit(
